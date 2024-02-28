@@ -11,7 +11,8 @@ Clear levels.
 
 ### Game Description
 <Elements Adventure> is a 2D platformer game with a twist, blending natural elements (fire, water) into its core mechanics. As the player, the goal is to reach the exit without being killed by different species of monsters. Players can use elemental powers to build their own pathways, defeat enemies, and bypass obstacles. Elements can be recollected after 10s and once the player dies, he/she will be retransmitted to the beginning point. The cloud ladder will also get diminished after 10s.
-### COntrols
+
+### Controls
 Movement: A,D or Left, Right
 	Jump: Space or W
 	Attack: Z,X
