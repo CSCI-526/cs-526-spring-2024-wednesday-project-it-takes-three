@@ -24,8 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayerScale()
     {
-        // 重置玩家的 localScale 为存储的原始值
         transform.localScale = originalPlayerScale;
+        //transform.rotation = Quaternion.Euler(0,0,0);
     }
 
     // Update is called once per frame
