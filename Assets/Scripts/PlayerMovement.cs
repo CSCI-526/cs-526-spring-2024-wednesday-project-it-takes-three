@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            canMoveOnPlatform = true; // 进入新平台时禁止移动，只允许跳跃
+            canMoveOnPlatform = true; 
         }
     }
 
