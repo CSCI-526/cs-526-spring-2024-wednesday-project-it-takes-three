@@ -11,7 +11,7 @@ public class StartMenuScript : MonoBehaviour
     {
         Debug.Log("Start game directly...");
         // loading GameOver scene
-        SceneManager.LoadScene("level2");
+        SceneManager.LoadScene("level1");
     }
 
     public void StageSelect()

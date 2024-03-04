@@ -10,7 +10,7 @@ public class EndMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false; // 隐藏光标
+        Cursor.visible = false; 
         //pauseMenu.SetActive(false);
         endMenu.SetActive(false);
 
@@ -20,24 +20,6 @@ public class EndMenu : MonoBehaviour
     void Update()
 
     {
-
-        //if (Input.GetKeyDown(KeyCode.Escape))
-
-        //{
-        //    Debug.Log("q");
-        //    if (!endMenu.activeSelf)
-        //    {
-        //        Time.timeScale = 0f; // freeze time
-        //        endMenu.SetActive(true);
-        //        Cursor.visible = true; // 显示光标
-        //    }
-        //    else
-        //    {
-        //        Time.timeScale = 1f;
-        //        endMenu.SetActive(false);
-        //        Cursor.visible = false; // 隐藏光标
-        //    }
-        //}
     }
 
 
@@ -48,7 +30,6 @@ public class EndMenu : MonoBehaviour
 
     public void restart()
     {
-        // 重新加载当前活动场景
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
     }
@@ -57,7 +38,19 @@ public class EndMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         endMenu.SetActive(false);
-        Cursor.visible = false; // 隐藏光标
+        Cursor.visible = false; 
+    }
+
+    public void LoadLevel2()
+    {
+        SceneManager.LoadScene("level2"); 
+        Time.timeScale = 1f; 
+    }
+
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene("level3");
+        Time.timeScale = 1f;
     }
 }
 
