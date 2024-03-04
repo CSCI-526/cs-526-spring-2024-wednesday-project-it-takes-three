@@ -284,8 +284,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPoint: {fileID: 1329668470}
   Player: {fileID: 348349053}
-  fireCountText: {fileID: 0}
-  waterCountText: {fileID: 0}
 --- !u!1 &42125870
 GameObject:
   m_ObjectHideFlags: 0
@@ -1054,7 +1052,6 @@ GameObject:
   - component: {fileID: 348349058}
   - component: {fileID: 348349059}
   - component: {fileID: 348349060}
-  - component: {fileID: 348349061}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1256,22 +1253,7 @@ MonoBehaviour:
   threshold: -10
   StartPoint: {fileID: 1329668470}
   Player: {fileID: 348349053}
---- !u!114 &348349061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348349053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9734c64bf5d014a45bffd42fc6b25a74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartPoint: {fileID: 42125870}
-  Player: {fileID: 348349053}
-  fireCountText: {fileID: 742379446}
-  waterCountText: {fileID: 455613324}
+  playerCollect: {fileID: 0}
 --- !u!1 &425959335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4066,8 +4048,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPoint: {fileID: 1329668470}
   Player: {fileID: 348349053}
-  fireCountText: {fileID: 0}
-  waterCountText: {fileID: 0}
 --- !u!1 &2088903654
 GameObject:
   m_ObjectHideFlags: 0
