@@ -14,12 +14,16 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 originalPlayerScale; // 用于存储玩家的原始 localScale
     public bool canMoveOnPlatform = true; // 默认情况下允许移动
 
+    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalPlayerScale = transform.localScale; // 存储原始尺寸
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         originalPlayerScale = transform.localScale;
+
+
     }
 
     public void ResetPlayerScale()
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetButtonDown("Jump") || Input.GetKeyDown(KeyCode.W)) && !isJumping)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
+
             isJumping = true;
 
             Debug.Log("Jump");
