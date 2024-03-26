@@ -41,6 +41,12 @@ public class EndMenu : MonoBehaviour
         Cursor.visible = false; 
     }
 
+    public void LoadLevel1()
+    {
+        SceneManager.LoadScene("level1");
+        Time.timeScale = 1f;
+    }
+
     public void LoadLevel2()
     {
         SceneManager.LoadScene("level2"); 

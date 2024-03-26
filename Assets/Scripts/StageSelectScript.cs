@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class StageSelectScript : MonoBehaviour
 {
-
+    public void SelectTutorial()
+    {
+        Debug.Log("Go to tutorial...");
+        // loading GameOver scene
+        SceneManager.LoadScene("tutorial");
+    }
 
     public void SelectLevel1()
     {
