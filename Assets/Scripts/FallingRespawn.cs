@@ -23,11 +23,14 @@ public class FallingRespawn : MonoBehaviour
             Player.transform.position = StartPoint.transform.position;
             Debug.Log("death");
 
-            playerCollect.fireElementCount = 0;
-            playerCollect.waterElementCount = 0;
+            //playerCollect.fireElementCount = 0;
+            //playerCollect.waterElementCount = 0;
 
             playerCollect.fireCountText.text = "Fire element count: " + playerCollect.fireElementCount;
             playerCollect.waterCountText.text = "Water element count: " + playerCollect.waterElementCount;
+
+
+            Player.GetComponent<PlayerCollect>().HandleDeath();
         }
 
     }

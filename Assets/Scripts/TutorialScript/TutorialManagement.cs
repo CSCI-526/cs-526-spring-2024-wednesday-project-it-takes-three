@@ -31,7 +31,7 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         float distance = player.position.x - 0f;
-        Debug.Log("Distance: " + distance);
+        //Debug.Log("Distance: " + distance);
 
         if (distance >= cloudLadderTextDistance)
         {
