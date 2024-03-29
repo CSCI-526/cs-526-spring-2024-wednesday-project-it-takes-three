@@ -26,8 +26,12 @@ public class DeathSrcipt : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             // Reset the player's position
+            Debug.Log("Player has died and will be reset.");
             Player.transform.position = StartPoint.transform.position;
             Debug.Log("Player has died and will be reset.");
+
+
+            Player.GetComponent<PlayerCollect>().HandleDeath();
 
             //// Reset the element counts in PlayerCollect script
             //playerCollect.fireElementCount = 0;

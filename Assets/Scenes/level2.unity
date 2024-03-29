@@ -397,9 +397,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d723abd5eaf4ac1821f81280cb4c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  currHealth: 2
+  maxHealth: 2
   moveSpeed: 2
   moveDistance: 2
+  HPdistanceAbove: 1.5
+  healthBarPrefab: {fileID: 8895094877196440781, guid: e00fbb108db9a44e88b4de0eb33e338d, type: 3}
+  scaleHP: 1.6
 --- !u!114 &9723809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,7 +1198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.6, y: 0.6}
+  m_AnchoredPosition: {x: 581, y: 390}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &266780730
@@ -1217,8 +1221,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Press <Z> to use fire ball. Press <X> to use water ball. Press <C> to
-    create cloud ladder. '
+  m_text: "Press <Z> to use fire ball. \nPress <X> to use water ball. \nPress <C>
+    to create cloud ladder. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1227,8 +1231,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1245,14 +1249,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 2
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1281,7 +1285,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -285.27032, y: -110.583405, z: 72.60184, w: 117.69617}
+  m_margin: {x: -213.5252, y: -110.583405, z: -248.54172, w: 80.11548}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1310,6 +1314,7 @@ GameObject:
   - component: {fileID: 348349058}
   - component: {fileID: 348349059}
   - component: {fileID: 348349060}
+  - component: {fileID: 348349061}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1418,7 +1423,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348349053}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -1496,6 +1501,8 @@ MonoBehaviour:
   platformPrefab: {fileID: 5024867412756322441, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
   desiredWidth: 2
   desiredLength: 4
+  deathCount: 0
+  cloudladderCount: 0
 --- !u!114 &348349060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1512,6 +1519,41 @@ MonoBehaviour:
   StartPoint: {fileID: 1329668470}
   Player: {fileID: 348349053}
   playerCollect: {fileID: 0}
+--- !u!70 &348349061
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348349053}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 1, y: 2}
+  m_Direction: 0
 --- !u!1 &352479355
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,8 +1898,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1892,7 +1934,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 61.622955, y: -217.82718, z: -164.11835, w: 220.40054}
+  m_margin: {x: 61.622955, y: -217.82718, z: -481.84546, w: 220.40054}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2040,6 +2082,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endMenu: {fileID: 123299593}
+  playerCollect: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,7 +2613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50.5, y: -600.5}
+  m_AnchoredPosition: {x: 54, y: -633}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742379446
@@ -2620,8 +2663,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2656,7 +2699,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 89.109726, y: -532.28046, z: -157.52805, w: 552.36597}
+  m_margin: {x: 89.109726, y: -532.28046, z: -458.17303, w: 552.36597}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3797,9 +3840,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d723abd5eaf4ac1821f81280cb4c9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  currHealth: 2
+  maxHealth: 2
   moveSpeed: 2
   moveDistance: 2
+  HPdistanceAbove: 1.5
+  healthBarPrefab: {fileID: 8895094877196440781, guid: e00fbb108db9a44e88b4de0eb33e338d, type: 3}
+  scaleHP: 1.6
 --- !u!61 &1405341483
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5328,9 +5375,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3095579ce616c47fc9fcabebe1a93610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  currHealth: 2
+  maxHealth: 2
   moveSpeed: 2
   moveDistance: 2
+  HPdistanceAbove: 1.5
+  healthBarPrefab: {fileID: 8895094877196440781, guid: e00fbb108db9a44e88b4de0eb33e338d, type: 3}
+  scaleHP: 1.6
 --- !u!212 &1956453322
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5610,9 +5661,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3095579ce616c47fc9fcabebe1a93610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 2
+  currHealth: 2
+  maxHealth: 2
   moveSpeed: 2
   moveDistance: 2
+  HPdistanceAbove: 1.5
+  healthBarPrefab: {fileID: 8895094877196440781, guid: e00fbb108db9a44e88b4de0eb33e338d, type: 3}
+  scaleHP: 1.6
 --- !u!212 &1990919247
 SpriteRenderer:
   m_ObjectHideFlags: 0

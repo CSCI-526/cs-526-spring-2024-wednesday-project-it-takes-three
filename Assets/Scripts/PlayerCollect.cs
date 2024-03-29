@@ -5,6 +5,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Proyecto26;
+using System;
+using UnityEngine.SceneManagement;
+
+
 public class PlayerCollect : MonoBehaviour
 
 { 
@@ -26,6 +31,9 @@ public class PlayerCollect : MonoBehaviour
 
     public float desiredWidth = 2f;
     public float desiredLength = 2f;
+
+    public int deathCount = 0;
+    public int cloudladderCount = 0;
 
     private void Start()
     {
@@ -103,6 +111,10 @@ public class PlayerCollect : MonoBehaviour
             newPlatform.tag = "MovingPlatform";
 
             PlatformScaler scaler = newPlatform.GetComponent<PlatformScaler>();
+
+            //Count cloud ladder
+            cloudladderCount++;
+
             if (scaler != null)
             {
                 scaler.StartMoving(transform); 
@@ -134,6 +146,35 @@ public class PlayerCollect : MonoBehaviour
             TryScalePlatform(); ;
         }
 
+    }
+
+
+
+
+
+    public void HandleDeath()
+    {
+        // Example: Log or push current counts to database
+        Debug.Log($"Fire elements collected: {fireElementCount}");
+        Debug.Log($"Water elements collected: {waterElementCount}");
+        Debug.Log($"Death Count: {deathCount}");
+        string currentLevel = SceneManager.GetActiveScene().name; // Or use .buildIndex for the level index
+
+        deathCount++;
+        ResetElementCounts();
+    }
+
+    private void ResetElementCounts()
+    {
+        fireElementCount = 0;
+        waterElementCount = 0;
+        UpdateElementTexts();
+    }
+
+    private void UpdateElementTexts()
+    {
+        fireCountText.text = "Fire element count: " + fireElementCount;
+        waterCountText.text = "Water element count: " + waterElementCount;
     }
 
 

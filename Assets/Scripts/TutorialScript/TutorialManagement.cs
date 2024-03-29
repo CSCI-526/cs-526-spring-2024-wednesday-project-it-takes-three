@@ -10,13 +10,15 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI shootWaterText;
     public TextMeshProUGUI shootFireText;
     public TextMeshProUGUI cloudLadderText;
+    public TextMeshProUGUI goBackText;
 
     public Transform player;
     //public Transform startPoint;
-    public float jumpTextDistance = -7f;
-    public float shootFireTextDistance = 3f;
-    public float shootWaterTextDistance = 8f;
-    public float cloudLadderTextDistance = 21f;
+    public float jumpTextDistance = -13f; //-14
+    public float shootFireTextDistance = -4f; //-5
+    public float shootWaterTextDistance = 2f; //1
+    public float goBackTextDistance = 16f; //11-21
+    public float cloudLadderTextDistance = 22f; //22
 
     void Start()
     {
@@ -25,13 +27,14 @@ public class TutorialManager : MonoBehaviour
         shootWaterText.gameObject.SetActive(false);
         shootFireText.gameObject.SetActive(false);
         cloudLadderText.gameObject.SetActive(false);
+        goBackText.gameObject.SetActive(false);
     }
 
 
     void Update()
     {
         float distance = player.position.x - 0f;
-        Debug.Log("Distance: " + distance);
+        //Debug.Log("Distance: " + distance);
 
         if (distance >= cloudLadderTextDistance)
         {
@@ -40,6 +43,16 @@ public class TutorialManager : MonoBehaviour
             moveText.gameObject.SetActive(false);
             jumpText.gameObject.SetActive(false);
             shootFireText.gameObject.SetActive(false);
+            goBackText.gameObject.SetActive(false);
+        }
+        else if (distance >= goBackTextDistance && goBackTextDistance >= 11)
+        {
+            goBackText.gameObject.SetActive(true);
+            shootWaterText.gameObject.SetActive(false);
+            shootFireText.gameObject.SetActive(false);
+            moveText.gameObject.SetActive(false);
+            jumpText.gameObject.SetActive(false);
+            cloudLadderText.gameObject.SetActive(false);
         }
         else if (distance >= shootWaterTextDistance)
         {
@@ -48,6 +61,7 @@ public class TutorialManager : MonoBehaviour
             moveText.gameObject.SetActive(false);
             jumpText.gameObject.SetActive(false);
             cloudLadderText.gameObject.SetActive(false);
+            goBackText.gameObject.SetActive(false);
         }
         else if (distance >= shootFireTextDistance)
         {
@@ -56,6 +70,7 @@ public class TutorialManager : MonoBehaviour
             cloudLadderText.gameObject.SetActive(false);
             shootWaterText.gameObject.SetActive(false);
             moveText.gameObject.SetActive(false);
+            goBackText.gameObject.SetActive(false);
         }
         else if (distance >= jumpTextDistance)
         {
@@ -64,6 +79,7 @@ public class TutorialManager : MonoBehaviour
             cloudLadderText.gameObject.SetActive(false);
             shootWaterText.gameObject.SetActive(false);
             shootFireText.gameObject.SetActive(false);
+            goBackText.gameObject.SetActive(false);
         }
         else
         {
@@ -72,6 +88,7 @@ public class TutorialManager : MonoBehaviour
             shootWaterText.gameObject.SetActive(false);
             shootFireText.gameObject.SetActive(false);
             cloudLadderText.gameObject.SetActive(false);
+            goBackText.gameObject.SetActive(false);
         }
         
     }

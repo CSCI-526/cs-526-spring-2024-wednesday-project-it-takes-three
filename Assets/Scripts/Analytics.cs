@@ -5,18 +5,30 @@ using Proyecto26;
 using System;
 
 [System.Serializable]
-public class PlayerData
+public class DeathElementData
 {
-    public string name;
-    public int score;
-    public int elementsUsed; // Existing field
+    public string level;
+    public int fireElementCount;
+    public int waterElementCount;
+    public int deathCount;
+   
+    public string timestamp; // New field to store the event timestamp
+}
+
+public class LevelEndCollect
+{
+    public string level;
+    public int fireElementCount;
+    public int waterElementCount;
+    public int deathCount;
+    public int cloudladderCount;
     public string timestamp; // New field to store the event timestamp
 }
 
 
-
 public class Analytics : MonoBehaviour
 {
+    /*
     private IEnumerator Start()
     {
         Debug.Log("OVRE HERE");
@@ -41,5 +53,5 @@ public class Analytics : MonoBehaviour
         });
 
         yield break;
-    }
+    }*/
 }

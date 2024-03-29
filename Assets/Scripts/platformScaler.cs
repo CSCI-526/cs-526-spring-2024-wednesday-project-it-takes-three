@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformScaler : MonoBehaviour
 {
-    public float targetHeight = 10f;
+    public float targetHeight = 5f;
     public float moveSpeed = 8f;
     public float delay = 10f;
     private bool isMoving = false; 
