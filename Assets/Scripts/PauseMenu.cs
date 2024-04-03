@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    //public GameObject Player;
     //public GameObject endMenu;
     // Start is called before the first frame update
     void Start()
@@ -46,9 +47,12 @@ public class PauseMenu : MonoBehaviour
     public void restart()
     {
         // 重新加载当前活动场景
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        pauseMenu.SetActive(false);
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        playerCollect.ResetElementCounts();
+        pauseMenu.SetActive(false);
+        //Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
     }
 
     public void resume()
@@ -60,8 +64,11 @@ public class PauseMenu : MonoBehaviour
 
     public void stageselect()
     {
+
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
         SceneManager.LoadScene("StageSelect");
+        PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        playerCollect.ResetElementCounts();
         pauseMenu.SetActive(false);
     }
 }

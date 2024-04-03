@@ -97,6 +97,8 @@ public class EndMenu : MonoBehaviour
         SendGameData(); //Send data before restarting
         //endMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        playerCollect.ResetElementCounts();
         endMenu.SetActive(false);
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
     }
@@ -112,6 +114,8 @@ public class EndMenu : MonoBehaviour
     {
         SendGameData(); // Send data before loading a new level
         SceneManager.LoadScene(levelName);
+        PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        playerCollect.ResetElementCounts();
         endMenu.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -119,6 +123,8 @@ public class EndMenu : MonoBehaviour
     {
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
         SceneManager.LoadScene("StageSelect");
+        PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        playerCollect.ResetElementCounts();
         endMenu.SetActive(false);
     }
 

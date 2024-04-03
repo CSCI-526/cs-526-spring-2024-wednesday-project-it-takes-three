@@ -64,6 +64,7 @@ public class PlayerCollect : MonoBehaviour
         {
             fireElementCount++;
             totalfireElementCount++;
+            fireCountText = GameObject.Find("counter fire").GetComponent<TextMeshProUGUI>(); //test
             fireCountText.text = "Fire element count: " + fireElementCount;
 
             StartCoroutine(ReactivateElement(other.gameObject, 10f));
@@ -72,6 +73,7 @@ public class PlayerCollect : MonoBehaviour
         {
             waterElementCount++;
             totalwaterElementCount++;
+            waterCountText = GameObject.Find("counter water").GetComponent<TextMeshProUGUI>(); //test
             waterCountText.text = "Water element count: " + waterElementCount;
 
             StartCoroutine(ReactivateElement(other.gameObject, 10f));
@@ -159,6 +161,8 @@ public class PlayerCollect : MonoBehaviour
 
     }
 
+    
+
 
 
 
@@ -175,7 +179,7 @@ public class PlayerCollect : MonoBehaviour
         ResetElementCounts();
     }
 
-    private void ResetElementCounts()
+    public void ResetElementCounts()
     {
         fireElementCount = 0;
         waterElementCount = 0;
