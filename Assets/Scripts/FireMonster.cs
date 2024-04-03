@@ -20,6 +20,7 @@ public class FireMonster : MonoBehaviour
 
     public float scaleHP = 1.6f;
 
+    public PlayerCollect playerCollect;
 
     //void Start()
     //{
@@ -33,6 +34,7 @@ public class FireMonster : MonoBehaviour
 
     void Start()
     {
+        playerCollect = FindObjectOfType<PlayerCollect>(); // Automatically finds and assigns the PlayerCollect component
         startPos = transform.position;
 
         healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
@@ -102,6 +104,7 @@ public class FireMonster : MonoBehaviour
         }
 
         Destroy(gameObject);
+        playerCollect.firemonsterdieCount++;
     }
 
     public void UpdateHealth(int currentHealth)

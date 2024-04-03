@@ -12,6 +12,7 @@ public class EndMenu : MonoBehaviour
 
     //public LevelEndCollect levelendcollect;
     public PlayerCollect playerCollect;
+    public CountdownTimer countdownTimer;
 
 
 
@@ -22,8 +23,10 @@ public class EndMenu : MonoBehaviour
         //pauseMenu.SetActive(false);
         endMenu.SetActive(false);
         playerCollect = FindObjectOfType<PlayerCollect>(); // Automatically finds and assigns the PlayerCollect component
+        countdownTimer = FindObjectOfType<CountdownTimer>(); // Automatically finds and assigns the PlayerCollect component
         //SendGameData();
     }
+
 
     // Update is called once per frame
     void Update()
@@ -40,21 +43,30 @@ public class EndMenu : MonoBehaviour
 
             string currentLevel = SceneManager.GetActiveScene().name; // Or use .buildIndex for the level index
 
-            LevelEndCollect levelendCollect = new LevelEndCollect
-            {
-                // Assuming PlayerData has fields for these counts
-                level = currentLevel,
-                fireElementCount =  playerCollect.fireElementCount,
-                waterElementCount = playerCollect.waterElementCount,
-                deathCount = playerCollect.deathCount,
-                cloudladderCount = playerCollect.cloudladderCount,
+            float timeUsedToSend = currentLevel.Equals("tutorial", StringComparison.OrdinalIgnoreCase) ? 0 : countdownTimer.timeUsed;
+
+
+        LevelEndCollect levelendCollect = new LevelEndCollect
+        {
+            // Assuming PlayerData has fields for these counts
+            level = currentLevel,
+            fireElementleft = playerCollect.fireElementCount,
+            waterElementleft = playerCollect.waterElementCount,
+            fireElementCount = playerCollect.totalfireElementCount,
+            waterElementCount = playerCollect.totalwaterElementCount,
+            deathCount = playerCollect.deathCount,
+            cloudladderCount = playerCollect.cloudladderCount,
+            watermonsterdieCount = playerCollect.watermonsterdieCount,
+            firemonsterdieCount = playerCollect.firemonsterdieCount,
+            timeUsed = timeUsedToSend,
+            
                 timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
             };
 
             string jsonData = JsonUtility.ToJson(levelendCollect);
-        Debug.Log(jsonData);
+            Debug.Log(jsonData);
         // Post to Firebase
-        string databaseUrl = "https://csci526-datacollection-default-rtdb.firebaseio.com/.json"; // Modify with your actual URL
+            string databaseUrl = "https://csci526-datacollection-default-rtdb.firebaseio.com/.json"; // Modify with your actual URL
             RestClient.Post(databaseUrl, jsonData).Then(response => {
                 Debug.Log("Data successfully sent to Firebase");
             }).Catch(error => {
@@ -62,6 +74,12 @@ public class EndMenu : MonoBehaviour
             });
             playerCollect.deathCount = 0;
             playerCollect.cloudladderCount = 0;
+            playerCollect.firemonsterdieCount = 0;
+            playerCollect.watermonsterdieCount = 0;
+        playerCollect.totalwaterElementCount = 0;
+        playerCollect.totalfireElementCount = 0;
+        
+
 
        
     }
@@ -77,7 +95,9 @@ public class EndMenu : MonoBehaviour
     public void restart()
     {
         SendGameData(); //Send data before restarting
+        //endMenu.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        endMenu.SetActive(false);
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
     }
 
@@ -92,9 +112,15 @@ public class EndMenu : MonoBehaviour
     {
         SendGameData(); // Send data before loading a new level
         SceneManager.LoadScene(levelName);
+        endMenu.SetActive(false);
         Time.timeScale = 1f;
     }
-
+    public void stageselect()
+    {
+        Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
+        SceneManager.LoadScene("StageSelect");
+        endMenu.SetActive(false);
+    }
 
     // Example wrapper methods to load specific levels
     public void LoadLevel1() { LoadLevel("level1"); }

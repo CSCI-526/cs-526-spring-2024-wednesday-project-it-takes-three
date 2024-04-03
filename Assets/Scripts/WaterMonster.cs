@@ -18,10 +18,12 @@ public class WaterMonster : MonoBehaviour
     private Vector3 startPos;
 
     public float scaleHP = 1.6f;
+    public PlayerCollect playerCollect;
 
 
     void Start()
     {
+        playerCollect = FindObjectOfType<PlayerCollect>(); // Automatically finds and assigns the PlayerCollect component
         startPos = transform.position;
 
         healthBar = Instantiate(healthBarPrefab, transform.position, Quaternion.identity);
@@ -91,6 +93,8 @@ public class WaterMonster : MonoBehaviour
         }
 
         Destroy(gameObject);
+
+        playerCollect.watermonsterdieCount++;
     }
 
     public void UpdateHealth(int currentHealth)

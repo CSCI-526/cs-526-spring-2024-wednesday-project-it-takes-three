@@ -20,8 +20,13 @@ public class LevelEndCollect
     public string level;
     public int fireElementCount;
     public int waterElementCount;
+    public int fireElementleft;
+    public int waterElementleft;
     public int deathCount;
     public int cloudladderCount;
+    public int watermonsterdieCount;
+    public int firemonsterdieCount;
+    public float timeUsed;
     public string timestamp; // New field to store the event timestamp
 }
 

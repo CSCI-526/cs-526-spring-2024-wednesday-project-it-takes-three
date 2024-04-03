@@ -16,6 +16,10 @@ public class PlayerCollect : MonoBehaviour
 
     public int fireElementCount = 0;
     public int waterElementCount = 0;
+
+    public int totalfireElementCount = 0;
+    public int totalwaterElementCount = 0;
+
     public int targetHeight = 3;
 
     public TextMeshProUGUI fireCountText;
@@ -34,6 +38,10 @@ public class PlayerCollect : MonoBehaviour
 
     public int deathCount = 0;
     public int cloudladderCount = 0;
+    public int cpressCount = 0;
+
+    public int firemonsterdieCount = 0;
+    public int watermonsterdieCount = 0;
 
     private void Start()
     {
@@ -55,6 +63,7 @@ public class PlayerCollect : MonoBehaviour
         if (other.gameObject.CompareTag("FireElement"))
         {
             fireElementCount++;
+            totalfireElementCount++;
             fireCountText.text = "Fire element count: " + fireElementCount;
 
             StartCoroutine(ReactivateElement(other.gameObject, 10f));
@@ -62,6 +71,7 @@ public class PlayerCollect : MonoBehaviour
         else if (other.gameObject.CompareTag("WaterElement"))
         {
             waterElementCount++;
+            totalwaterElementCount++;
             waterCountText.text = "Water element count: " + waterElementCount;
 
             StartCoroutine(ReactivateElement(other.gameObject, 10f));
@@ -143,7 +153,8 @@ public class PlayerCollect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.C))
         {
-            TryScalePlatform(); ;
+            TryScalePlatform();
+            cpressCount++;
         }
 
     }
@@ -168,6 +179,10 @@ public class PlayerCollect : MonoBehaviour
     {
         fireElementCount = 0;
         waterElementCount = 0;
+
+        totalfireElementCount = 0;
+        totalwaterElementCount = 0;
+
         UpdateElementTexts();
     }
 

@@ -47,6 +47,7 @@ public class PauseMenu : MonoBehaviour
     {
         // 重新加载当前活动场景
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        pauseMenu.SetActive(false);
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
     }
 
@@ -55,5 +56,12 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         Cursor.visible = false; // 隐藏光标
+    }
+
+    public void stageselect()
+    {
+        Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
+        SceneManager.LoadScene("StageSelect");
+        pauseMenu.SetActive(false);
     }
 }
