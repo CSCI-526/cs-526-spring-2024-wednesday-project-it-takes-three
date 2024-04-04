@@ -16,7 +16,7 @@ public class GlobalSceneManager : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
     }
 
