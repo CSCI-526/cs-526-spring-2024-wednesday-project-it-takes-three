@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3087216818875688908}
   - component: {fileID: 1567026731396819505}
   - component: {fileID: 643176585327195155}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: HP foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,9 +98,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8090812913080354792}
+  - component: {fileID: 1303607406822774582}
   - component: {fileID: 5333965350655016456}
   - component: {fileID: 6974334972675274818}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: healthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,6 +128,18 @@ RectTransform:
   m_AnchoredPosition: {x: -262.11, y: -257.05}
   m_SizeDelta: {x: 80, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1303607406822774582
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895094877196440781}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!222 &5333965350655016456
 CanvasRenderer:
   m_ObjectHideFlags: 0

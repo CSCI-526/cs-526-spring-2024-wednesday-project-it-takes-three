@@ -6,9 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    //public GameObject Player;
-    //public GameObject endMenu;
-    // Start is called before the first frame update
+
     void Start()
     {
         Cursor.visible = false; // 隐藏光标
@@ -17,7 +15,6 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -29,12 +26,22 @@ public class PauseMenu : MonoBehaviour
                 Time.timeScale = 0f; // freeze time
                 pauseMenu.SetActive(true);
                 Cursor.visible = true; // 显示光标
+                HealthMonster[] healthMonsters = FindObjectsOfType<HealthMonster>();
+                foreach (HealthMonster healthMonster in healthMonsters)
+                {
+                    healthMonster.Hide();
+                }
             }
             else
             {
                 Time.timeScale = 1f;
                 pauseMenu.SetActive(false);
                 Cursor.visible = false; // 隐藏光标
+                HealthMonster[] healthMonsters = FindObjectsOfType<HealthMonster>();
+                foreach (HealthMonster healthMonster in healthMonsters)
+                {
+                    healthMonster.Show();
+                }
             }
         }
     }
@@ -46,13 +53,18 @@ public class PauseMenu : MonoBehaviour
 
     public void restart()
     {
+        foreach (var healthMonster in FindObjectsOfType<HealthMonster>())
+        {
+            Destroy(healthMonster.transform.root.gameObject);
+        }
+
+        pauseMenu.SetActive(false);
         // 重新加载当前活动场景
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
         playerCollect.ResetElementCounts();
-        pauseMenu.SetActive(false);
-        //Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
+        
     }
 
     public void resume()
@@ -60,6 +72,11 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
         Cursor.visible = false; // 隐藏光标
+        HealthMonster[] healthMonsters = FindObjectsOfType<HealthMonster>();
+        foreach (HealthMonster healthMonster in healthMonsters)
+        {
+            healthMonster.Show();
+        }
     }
 
     public void stageselect()
@@ -72,3 +89,4 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 }
+
