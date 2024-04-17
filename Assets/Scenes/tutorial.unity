@@ -1618,7 +1618,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 8
-  jump: 1300
+  jump: 1000
   isJumping: 0
   canMoveOnPlatform: 1
 --- !u!114 &348349059
