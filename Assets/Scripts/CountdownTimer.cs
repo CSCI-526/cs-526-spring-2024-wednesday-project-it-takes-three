@@ -24,7 +24,7 @@ public class CountdownTimer : MonoBehaviour
         switch (sceneName)
         {
             case "level1":
-                initialTime = 5;
+                initialTime = 80;
                 break;
             case "level2":
                 initialTime = 100;
