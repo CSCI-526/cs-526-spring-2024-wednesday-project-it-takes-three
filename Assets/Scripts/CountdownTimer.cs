@@ -24,13 +24,13 @@ public class CountdownTimer : MonoBehaviour
         switch (sceneName)
         {
             case "level1":
-                initialTime = 60;
+                initialTime = 80;
                 break;
             case "level2":
-                initialTime = 90;
+                initialTime = 100;
                 break;
             case "level3":
-                initialTime = 120;
+                initialTime = 130;
                 break;
         }
         //timeText.text = "Test Start";
