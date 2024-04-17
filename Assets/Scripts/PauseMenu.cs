@@ -81,12 +81,19 @@ public class PauseMenu : MonoBehaviour
 
     public void stageselect()
     {
+        foreach (var healthMonster in FindObjectsOfType<HealthMonster>())
+        {
+            Destroy(healthMonster.transform.root.gameObject);
+        }
 
         Time.timeScale = 1f; // Make sure to reset the time scale, or the game will remain paused
-        SceneManager.LoadScene("StageSelect");
+        pauseMenu.SetActive(false);
         PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
         playerCollect.ResetElementCounts();
-        pauseMenu.SetActive(false);
+        SceneManager.LoadScene("StageSelect");
+        //PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+        //playerCollect.ResetElementCounts();
+        //pauseMenu.SetActive(false);
     }
 }
 
