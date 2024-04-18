@@ -181,6 +181,7 @@ public class PlayerCollect : MonoBehaviour
 
     public void ResetElementCounts()
     {
+        Debug.Log("playercollect debugger");
         fireElementCount = 0;
         waterElementCount = 0;
 

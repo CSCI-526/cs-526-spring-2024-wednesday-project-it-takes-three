@@ -6,7 +6,7 @@ public class Shooting : MonoBehaviour
 {
     public int damage = 1;
     public string elementType; // "Fire" or "Water"
-    public float speed = 5.0f;
+    private float speed = 15.0f;
 
 
     void Update()

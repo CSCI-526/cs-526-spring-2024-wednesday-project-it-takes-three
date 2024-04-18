@@ -24,13 +24,13 @@ public class CountdownTimer : MonoBehaviour
         switch (sceneName)
         {
             case "level1":
-                initialTime = 60;
+                initialTime = 80;
                 break;
             case "level2":
-                initialTime = 90;
+                initialTime = 100;
                 break;
             case "level3":
-                initialTime = 120;
+                initialTime = 130;
                 break;
         }
         //timeText.text = "Test Start";
@@ -61,6 +61,8 @@ public class CountdownTimer : MonoBehaviour
                 //timeRemaining = 0;
                 timerIsRunning = false;
                 GlobalSceneManager.Instance.UpdateLastScene(SceneManager.GetActiveScene().name);
+                PlayerCollect playerCollect = FindObjectOfType<PlayerCollect>();
+                playerCollect.ResetElementCounts();
                 SceneManager.LoadScene("GameOver");
                 // 这里可以添加时间结束后的逻辑，比如重新开始或者返回菜单等
             }
