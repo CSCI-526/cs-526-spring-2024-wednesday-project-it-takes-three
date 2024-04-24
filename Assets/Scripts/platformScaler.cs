@@ -7,24 +7,26 @@ public class PlatformScaler : MonoBehaviour
     public float targetHeight = 5f;
     public float moveSpeed = 8f;
     public float delay = 10f;
-    private bool isMoving = false; 
-    private Vector3 startPosition; 
-    private Vector3 targetPosition; 
+    private bool isMoving = false;
+    private Vector3 startPosition;
+    private Vector3 targetPosition;
     private string originalTag;
     private Transform playerTransform;
 
     public float desiredWidth = 2f; 
+    //private float desiredWidth = 0.6f;
     public float desiredLength = 2f; 
+    //private float desiredLength = 0.001f;
 
     private Vector3 originalPlayerScale; // 用于存储玩家的原始 localScale
 
 
     void Start()
     {
-        
+
         startPosition = transform.position;
         targetPosition = new Vector3(transform.position.x, targetHeight, transform.position.z);
-        originalTag = gameObject.tag; 
+        originalTag = gameObject.tag;
     }
 
 
@@ -84,7 +86,8 @@ public class PlatformScaler : MonoBehaviour
 
         transform.position = new Vector3(player.position.x, player.position.y - targetHeight, player.position.z);
 
-        transform.localScale = new Vector3(desiredWidth, 1f, desiredLength);
+        //transform.localScale = new Vector3(desiredWidth, 1f, desiredLength);
+        transform.localScale = new Vector3(desiredWidth,desiredLength,1f);
 
         player.SetParent(transform);
 
@@ -94,8 +97,9 @@ public class PlatformScaler : MonoBehaviour
 
     public void SetStartPosition(Vector3 newStartPosition)
     {
-        startPosition = newStartPosition; 
-        targetPosition = new Vector3(startPosition.x, targetHeight, startPosition.z); 
+        startPosition = newStartPosition;
+        targetPosition = new Vector3(startPosition.x, targetHeight, startPosition.z);
     }
 
 }
+

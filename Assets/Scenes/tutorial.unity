@@ -5524,20 +5524,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2051240264419210520, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.58391684
-      objectReference: {fileID: 0}
-    - target: {fileID: 2051240264419210520, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.34163597
-      objectReference: {fileID: 0}
-    - target: {fileID: 2051240264419210520, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.3
+      value: 34.7468
       objectReference: {fileID: 0}
     - target: {fileID: 2051240264419210520, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.77
+      value: -3.53357
       objectReference: {fileID: 0}
     - target: {fileID: 2051240264419210520, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5572,40 +5564,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2946674930371962638, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: targetHeight
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2946674930371962638, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
       propertyPath: desiredLength
-      value: 4
+      value: 0.4
       objectReference: {fileID: 0}
-    - target: {fileID: 2947041574810015534, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300034, guid: 51095c0ded273b74cad074f0d7d6b32a, type: 3}
-    - target: {fileID: 2947041574810015534, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947041574810015534, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947041574810015534, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2947041574810015534, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 5024867412756322441, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
       propertyPath: m_Name
       value: platform
-      objectReference: {fileID: 0}
-    - target: {fileID: 5024867412756322441, guid: 81af6dbbf19b84dd4956a2f125800027, type: 3}
-      propertyPath: m_TagString
-      value: MovingPlatform
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
